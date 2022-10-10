@@ -1,5 +1,31 @@
 import axios from "axios";
 
+enum Suits {
+  HEARTS = "HEARTS",
+  SPADES = "SPADES",
+  CLUBS = "CLUBS",
+  DIAMONDS = "DIAMONDS",
+}
+
+enum Values {
+  ACE = 'ACE',
+  TWO = '2',
+  THREE = '3',
+  FOUR = '4',
+  FIVE = '5',
+  SIX = '6',
+  SEVEN = '7',
+  EIGHT = '8',
+  NINE = '9',
+  TEN = '10',
+  JACK = 'JACK',
+  QUEEN = 'QUEEN',
+  KING = 'KING',
+}
+
+type suits = keyof typeof Suits; 
+type values = typeof Values; 
+
 export interface Card {
   code: string;
   image: string; 
@@ -7,17 +33,17 @@ export interface Card {
     svg: string; 
     png: string;
   }, 
-  value: string; 
-  suit: string;
+  value: values; 
+  suit: suits;
 }
 
-const BASE_URL = "https://deckofcardsapi.com/api/deck";
+export const BASE_URL = "https://deckofcardsapi.com/api/deck";
 
 const handleErrors = (error: string) => {
   console.error(error);
 }
 
-interface NewDeckData {
+export interface NewDeckData {
   success: true;
   deck_id: string;
   shuffled: boolean;
@@ -36,7 +62,7 @@ export const getNewShuffledDeckID = (deckCount = 1) => {
 
 type DeckID = string;
 
-interface CardsData {
+export interface CardsData {
   success: boolean, 
   deck_id: string, 
   cards: [Card]; 

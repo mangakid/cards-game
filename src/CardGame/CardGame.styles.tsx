@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CardImage = styled.img`
   width: 100%;
@@ -6,11 +6,11 @@ export const CardImage = styled.img`
 `;
 
 export const CardWrapper = styled.div.attrs(() => ({
-    dataTestId: "placeholder"
-  }))`
-    width: 226px;
-    height: 314px;
-    border: 1px solid black;
+  dataTestId: "placeholder",
+}))`
+  width: 226px;
+  height: 314px;
+  border: 1px solid black;
 `;
 
 export const CardsWrapper = styled.div`
